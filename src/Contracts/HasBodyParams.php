@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Contracts;
+namespace CaagSoftware\DIBSPayment\Contracts;
 
 interface HasBodyParams
 {

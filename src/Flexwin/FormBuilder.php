@@ -1,8 +1,8 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Flexwin;
+namespace CaagSoftware\DIBSPayment\Flexwin;
 
-use IanRodrigues\DIBSPayment\DIBS;
+use CaagSoftware\DIBSPayment\DIBS;
 
 class FormBuilder
 {

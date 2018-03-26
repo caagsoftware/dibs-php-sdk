@@ -1,8 +1,8 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\DIBS;
-use IanRodrigues\DIBSPayment\Requests\PaymentHandling\Refund;
+use CaagSoftware\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\DIBS;
+use CaagSoftware\DIBSPayment\Requests\PaymentHandling\Refund;
 use PHPUnit\Framework\TestCase;
 
 class DIBSTest extends TestCase

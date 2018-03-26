@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Flexwin;
+namespace CaagSoftware\DIBSPayment\Flexwin;
 
 class Result
 {

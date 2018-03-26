@@ -1,9 +1,9 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Flexwin;
+namespace CaagSoftware\DIBSPayment\Flexwin;
 
-use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
+use CaagSoftware\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\Contracts\HasBodyParams;
 
 class Transaction implements HasBodyParams
 {

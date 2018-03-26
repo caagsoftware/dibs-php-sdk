@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment;
+namespace CaagSoftware\DIBSPayment;
 
 class Amount
 {

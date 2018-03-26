@@ -1,6 +1,6 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Flexwin\Result;
+use CaagSoftware\DIBSPayment\Flexwin\Result;
 use PHPUnit\Framework\TestCase;
 
 class ResultTest extends TestCase

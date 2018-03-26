@@ -1,6 +1,6 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\Amount;
 use PHPUnit\Framework\TestCase;
 
 class AmountTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Requests;
+namespace CaagSoftware\DIBSPayment\Requests;
 
 abstract class Request
 {

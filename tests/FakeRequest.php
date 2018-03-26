@@ -1,7 +1,7 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
-use IanRodrigues\DIBSPayment\Requests\Request;
+use CaagSoftware\DIBSPayment\Contracts\HasBodyParams;
+use CaagSoftware\DIBSPayment\Requests\Request;
 
 class FakeRequest extends Request implements HasBodyParams
 {

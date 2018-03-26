@@ -1,12 +1,12 @@
 {
-    "name": "ianrodrigues/dibs-php-sdk",
+    "name": "caagsoftware/dibs-php-sdk",
     "description": "An open-source PHP-SDK for DIBS D2",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Ian Rodrigues",
-            "email": "ian@ianrodrigues.me"
+            "name": "Caag Software",
+            "homepage": "https://github.com/caagsoftware/dibs-php-sdk/contributors"
         }
     ],
     "require": {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "IanRodrigues\\DIBSPayment\\": "src/"
+            "CaagSoftware\\DIBSPayment\\": "src/"
         }
     },
     "autoload-dev": {

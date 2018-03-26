@@ -1,7 +1,7 @@
 <?php
 
-use IanRodrigues\DIBSPayment\DIBS;
-use IanRodrigues\DIBSPayment\Requests\Handler;
+use CaagSoftware\DIBSPayment\DIBS;
+use CaagSoftware\DIBSPayment\Requests\Handler;
 use PHPUnit\Framework\TestCase;
 
 class HandlerTest extends TestCase

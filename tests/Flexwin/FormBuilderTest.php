@@ -1,9 +1,9 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\DIBS;
-use IanRodrigues\DIBSPayment\Flexwin\FormBuilder;
-use IanRodrigues\DIBSPayment\Flexwin\Transaction;
+use CaagSoftware\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\DIBS;
+use CaagSoftware\DIBSPayment\Flexwin\FormBuilder;
+use CaagSoftware\DIBSPayment\Flexwin\Transaction;
 use PHPUnit\Framework\TestCase;
 
 class FormBuilderTest extends TestCase

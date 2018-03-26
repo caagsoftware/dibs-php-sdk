@@ -1,9 +1,9 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Requests;
+namespace CaagSoftware\DIBSPayment\Requests;
 
 use GuzzleHttp\Client;
-use IanRodrigues\DIBSPayment\DIBS;
+use CaagSoftware\DIBSPayment\DIBS;
 
 class Handler
 {

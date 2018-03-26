@@ -1,7 +1,7 @@
 <?php
 
-use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\Flexwin\Transaction;
+use CaagSoftware\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\Flexwin\Transaction;
 use PHPUnit\Framework\TestCase;
 
 class TransactionTest extends TestCase

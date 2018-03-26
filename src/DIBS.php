@@ -1,11 +1,11 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment;
+namespace CaagSoftware\DIBSPayment;
 
 use GuzzleHttp\Client;
-use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
-use IanRodrigues\DIBSPayment\Requests\Handler;
-use IanRodrigues\DIBSPayment\Requests\Request;
+use CaagSoftware\DIBSPayment\Contracts\HasBodyParams;
+use CaagSoftware\DIBSPayment\Requests\Handler;
+use CaagSoftware\DIBSPayment\Requests\Request;
 
 class DIBS implements HasBodyParams
 {

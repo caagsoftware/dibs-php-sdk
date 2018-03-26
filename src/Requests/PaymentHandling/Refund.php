@@ -1,10 +1,10 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\Requests\PaymentHandling;
+namespace CaagSoftware\DIBSPayment\Requests\PaymentHandling;
 
-use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
-use IanRodrigues\DIBSPayment\Requests\Request;
+use CaagSoftware\DIBSPayment\Amount;
+use CaagSoftware\DIBSPayment\Contracts\HasBodyParams;
+use CaagSoftware\DIBSPayment\Requests\Request;
 
 class Refund extends Request implements HasBodyParams
 {
