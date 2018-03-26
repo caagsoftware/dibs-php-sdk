@@ -1,12 +1,12 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment\PaymentHandling;
+namespace IanRodrigues\DIBSPayment\Requests\PaymentHandling;
 
 use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\DIBS;
-use IanRodrigues\DIBSPayment\Dispatchable;
+use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
+use IanRodrigues\DIBSPayment\Requests\Request;
 
-class Refund extends Dispatchable
+class Refund extends Request implements HasBodyParams
 {
     /**
      * @var int
@@ -26,18 +26,15 @@ class Refund extends Dispatchable
     /**
      * Create new Refund instance.
      *
-     * @param DIBS   $dibs
      * @param int    $transact
      * @param string $orderId
      * @param Amount $amount
      */
-    public function __construct(DIBS $dibs, int $transact, string $orderId, Amount $amount)
+    public function __construct(int $transact, string $orderId, Amount $amount)
     {
         $this->transact = $transact;
         $this->orderId = $orderId;
         $this->amount = $amount;
-
-        parent::__construct($dibs);
     }
 
     /**
@@ -59,16 +56,14 @@ class Refund extends Dispatchable
     /**
      * @return array
      */
-    public function getBodyParams(): array
+    public function toBodyParams(): array
     {
-        $bodyParams = [
+        return [
             'transact' => $this->transact,
             'orderid' => $this->orderId,
             'currency' => $this->amount->getCurrency(),
             'amount' => $this->amount->getValue(),
             'textreply' => 'success',
         ];
-
-        return $this->dibs->getBodyParams($bodyParams);
     }
 }

@@ -2,8 +2,15 @@
 
 namespace IanRodrigues\DIBSPayment\Flexwin;
 
+use IanRodrigues\DIBSPayment\DIBS;
+
 class FormBuilder
 {
+    /**
+     * @var DIBS
+     */
+    private $dibs;
+
     /**
      * @var Transaction
      */
@@ -17,12 +24,14 @@ class FormBuilder
     /**
      * Create new FormBuilder instance.
      *
+     * @param DIBS $dibs
      * @param Transaction $transaction
      * @param string $submitText
      */
-    public function __construct(Transaction $transaction, string $submitText = 'Go to DIBS')
+    public function __construct(DIBS $dibs, Transaction $transaction, string $submitText = 'Go to DIBS')
     {
-        $this->tranasaction = $transaction;
+        $this->dibs = $dibs;
+        $this->transaction = $transaction;
         $this->submitText = $submitText;
     }
 
@@ -62,13 +71,21 @@ class FormBuilder
     }
 
     /**
+     * @return array
+     */
+    public function bodyParams(): array
+    {
+        return array_merge($this->dibs->toBodyParams(), $this->transaction->toBodyParams());
+    }
+
+    /**
      * @return string
      */
     public function render(): string
     {
         $form = $this->openForm();
 
-        foreach ($this->tranasaction->getBodyParams() as $name => $value) {
+        foreach ($this->bodyParams() as $name => $value) {
             $form .= $this->hiddenField($name, $value);
         }
 

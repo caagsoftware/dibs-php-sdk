@@ -3,9 +3,9 @@
 namespace IanRodrigues\DIBSPayment\Flexwin;
 
 use IanRodrigues\DIBSPayment\Amount;
-use IanRodrigues\DIBSPayment\DIBS;
+use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
 
-class Transaction
+class Transaction implements HasBodyParams
 {
     /**
      * @var string
@@ -35,9 +35,8 @@ class Transaction
      * @param Amount $amount
      * @param string $acceptUrl
      */
-    public function __construct(DIBS $dibs, string $orderId, Amount $amount, string $acceptUrl)
+    public function __construct(string $orderId, Amount $amount, string $acceptUrl)
     {
-        $this->dibs = $dibs;
         $this->orderId = $orderId;
         $this->amount = $amount;
         $this->acceptUrl = $acceptUrl;
@@ -62,7 +61,7 @@ class Transaction
     /**
      * @return array
      */
-    public function getBodyParams(): array
+    public function toBodyParams(): array
     {
         $data = [
             'accepturl' => $this->acceptUrl,
@@ -75,6 +74,6 @@ class Transaction
             $data['capturenow'] = 'yes';
         }
 
-        return $this->dibs->getBodyParams($data);
+        return $data;
     }
 }

@@ -3,9 +3,11 @@
 namespace IanRodrigues\DIBSPayment;
 
 use GuzzleHttp\Client;
-use IanRodrigues\DIBSPayment\Contracts\Dispatchable;
+use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
+use IanRodrigues\DIBSPayment\Requests\Handler;
+use IanRodrigues\DIBSPayment\Requests\Request;
 
-class DIBS
+class DIBS implements HasBodyParams
 {
     /**
      * @var string
@@ -65,19 +67,31 @@ class DIBS
     }
 
     /**
-     * @param  array  $append
      * @return array
      */
-    public function getBodyParams(array $append = []): array
+    public function toBodyParams(): array
     {
-        $bodyParams = array_merge([
+        $data = [
             'merchant' => $this->merchantId,
-        ], $append);
+        ];
 
         if ($this->isTestEnvironment()) {
-            $bodyParams['test'] = 1;
+            $data['test'] = 1;
         }
 
-        return $bodyParams;
+        return $data;
+    }
+
+    /**
+     * @param Request $request
+     * @param mixed $handler
+     *
+     * @return array
+     */
+    public function handle(Request $request, $handler = null): array
+    {
+        $handler = $handler ?: new Handler($this);
+
+        return $handler->handle($request);
     }
 }

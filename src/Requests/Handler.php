@@ -1,10 +1,11 @@
 <?php
 
-namespace IanRodrigues\DIBSPayment;
+namespace IanRodrigues\DIBSPayment\Requests;
 
 use GuzzleHttp\Client;
+use IanRodrigues\DIBSPayment\DIBS;
 
-abstract class Dispatchable
+class Handler
 {
     /**
      * @var DIBS
@@ -28,32 +29,21 @@ abstract class Dispatchable
     }
 
     /**
-     * @return string
-     */
-    abstract protected function getHttpMethod(): string;
-
-    /**
-     * @return string
-     */
-    abstract protected function getEndpoint(): string;
-
-    /**
-     * @return array
-     */
-    abstract public function getBodyParams(): array;
-
-    /**
-     * Dispatch a function to the DIBS api.
+     * Handle the request.
+     *
+     * @param Request $request
      *
      * @return array
      */
-    public function dispatch(): array
+    public function handle(Request $request): array
     {
+        var_dump(array_merge($this->dibs->toBodyParams(), $request->toBodyParams())); die;
+
         $response = $this->guzzle->request(
-            $this->getHttpMethod(),
-            $this->getEndpoint(),
+            $request->getHttpMethod(),
+            $request->getEndpoint(),
             [
-                'form_params' => $this->getBodyParams(),
+                'form_params' => array_merge($this->dibs->toBodyParams(), $request->toBodyParams()),
             ]
         );
 
