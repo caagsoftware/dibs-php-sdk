@@ -15,6 +15,11 @@ class Result
     private $approvalcode;
 
     /**
+     * @var int
+     */
+    private $transact;
+
+    /**
      * @var string[]
      */
     private $messages = [
@@ -80,6 +85,14 @@ class Result
     public function getApprovalCode(): int
     {
         return (int) $this->approvalcode;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTransactId(): int
+    {
+        return (int) $this->transact;
     }
 
     /**
