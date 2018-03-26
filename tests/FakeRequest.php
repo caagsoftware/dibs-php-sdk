@@ -1,0 +1,33 @@
+<?php
+
+use IanRodrigues\DIBSPayment\Contracts\HasBodyParams;
+use IanRodrigues\DIBSPayment\Requests\Request;
+
+class FakeRequest extends Request implements HasBodyParams
+{
+    /**
+     * @return string
+     */
+    public function getHttpMethod(): string
+    {
+        return 'POST';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndpoint(): string
+    {
+        return '/fake';
+    }
+
+    /**
+     * @return array
+     */
+    public function toBodyParams(): array
+    {
+        return [
+            'fake' => true,
+        ];
+    }
+}

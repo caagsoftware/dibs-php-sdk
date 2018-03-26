@@ -19,11 +19,13 @@ class Handler
 
     /**
      * @param DIBS $dibs
+     * @param mixed $client
      */
-    public function __construct(DIBS $dibs)
+    public function __construct(DIBS $dibs, $client = null)
     {
         $this->dibs = $dibs;
-        $this->guzzle = new Client([
+
+        $this->guzzle = $client ?: new Client([
             'base_uri' => "https://{$dibs->getMerchantId()}:{$dibs->getMerchantSecret()}@payment.architrade.com",
         ]);
     }
@@ -37,8 +39,6 @@ class Handler
      */
     public function handle(Request $request): array
     {
-        var_dump(array_merge($this->dibs->toBodyParams(), $request->toBodyParams())); die;
-
         $response = $this->guzzle->request(
             $request->getHttpMethod(),
             $request->getEndpoint(),

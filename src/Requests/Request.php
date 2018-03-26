@@ -7,10 +7,10 @@ abstract class Request
     /**
      * @return string
      */
-    protected function getHttpMethod(): string {}
+    abstract public function getHttpMethod(): string;
 
     /**
      * @return string
      */
-    protected function getEndpoint(): string {}
+    abstract public function getEndpoint(): string;
 }
