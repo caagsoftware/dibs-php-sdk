@@ -44,6 +44,14 @@ class Transaction
     }
 
     /**
+     * @return string
+     */
+    public function getActionUrl()
+    {
+        return 'https://payment.architrade.com/paymentweb/start.action';
+    }
+
+    /**
      * @return void
      */
     public function mustCaptureNow(): void

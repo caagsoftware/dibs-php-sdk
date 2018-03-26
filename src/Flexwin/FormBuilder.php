@@ -31,7 +31,7 @@ class FormBuilder
      */
     private function openForm(): string
     {
-        return "<form method=\"post\" action=\"https://payment.architrade.com/paymentweb/start.action\" accept-charset=\"utf-8\">";
+        return "<form method=\"post\" action=\"{$this->transaction->getActionUrl()}\" accept-charset=\"utf-8\">";
     }
 
     /**
