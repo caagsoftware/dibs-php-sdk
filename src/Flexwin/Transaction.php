@@ -53,7 +53,7 @@ class Transaction implements HasBodyParams
     /**
      * @return void
      */
-    public function mustCaptureNow(): void
+    public function enableInstantCapture(): void
     {
         $this->captureNow = true;
     }
