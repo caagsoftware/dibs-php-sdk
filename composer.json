@@ -1,0 +1,24 @@
+{
+    "name": "ianrodrigues/dibs-php-sdk",
+    "description": "An open-source PHP-SDK for DIBS D2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ian Rodrigues",
+            "email": "ian@ianrodrigues.me"
+        }
+    ],
+    "require": {
+        "php": ">= 7.1",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "IanRodrigues\\DIBSPayment\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    }
+}
