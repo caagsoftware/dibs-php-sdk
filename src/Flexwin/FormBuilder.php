@@ -73,7 +73,7 @@ class FormBuilder
     /**
      * @return array
      */
-    public function bodyParams(): array
+    private function bodyParams(): array
     {
         return array_merge($this->dibs->toBodyParams(), $this->transaction->toBodyParams());
     }
