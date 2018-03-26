@@ -40,7 +40,7 @@ class Refund extends Request implements HasBodyParams
     /**
      * @return string
      */
-    protected function getHttpMethod(): string
+    public function getHttpMethod(): string
     {
         return 'POST';
     }
@@ -48,7 +48,7 @@ class Refund extends Request implements HasBodyParams
     /**
      * @return string
      */
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return '/cgi-adm/refund.cgi';
     }
