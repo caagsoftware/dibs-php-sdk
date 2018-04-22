@@ -86,6 +86,7 @@ class Transaction implements HasBodyParams
             'currency' => $this->amount->getCurrency(),
             'amount' => $this->amount->getValue(),
             'orderid' => $this->orderId,
+            'lang' => $this->language,
             'acquirerlang' => $this->language,
         ];
 
