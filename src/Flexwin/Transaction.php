@@ -28,6 +28,11 @@ class Transaction implements HasBodyParams
     private $captureNow = false;
 
     /**
+     * @var string
+     */
+    private $language;
+
+    /**
      * Create new Transaction instance.
      *
      * @param DIBS $dibs
@@ -51,11 +56,24 @@ class Transaction implements HasBodyParams
     }
 
     /**
-     * @return void
+     * @return Transaction
      */
-    public function enableInstantCapture(): void
+    public function enableInstantCapture(): Transaction
     {
         $this->captureNow = true;
+
+        return $this;
+    }
+
+    /**
+     * @param string $language
+     * @return Transaction
+     */
+    public function setLanguage(string $language): Transaction
+    {
+        $this->language = $language;
+
+        return $this;
     }
 
     /**
@@ -68,6 +86,7 @@ class Transaction implements HasBodyParams
             'currency' => $this->amount->getCurrency(),
             'amount' => $this->amount->getValue(),
             'orderid' => $this->orderId,
+            'acquirerlang' => $this->language,
         ];
 
         if ($this->captureNow) {
