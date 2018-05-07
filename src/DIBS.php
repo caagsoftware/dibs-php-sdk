@@ -77,8 +77,6 @@ class DIBS implements HasBodyParams
 
         if ($this->isTestEnvironment()) {
             $data['test'] = 1;
-        } else {
-            $data['test'] = 0;
         }
 
         return $data;
