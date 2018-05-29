@@ -4,9 +4,15 @@ namespace CaagSoftware\DIBSPayment\Flexwin;
 
 use CaagSoftware\DIBSPayment\Amount;
 use CaagSoftware\DIBSPayment\Contracts\HasBodyParams;
+use CaagSoftware\DIBSPayment\DIBS;
 
 class Transaction implements HasBodyParams
 {
+    /**
+     * @var DIBS
+     */
+    private $dibs;
+
     /**
      * @var string
      */
@@ -40,8 +46,9 @@ class Transaction implements HasBodyParams
      * @param Amount $amount
      * @param string $acceptUrl
      */
-    public function __construct(string $orderId, Amount $amount, string $acceptUrl)
+    public function __construct(DIBS $dibs, string $orderId, Amount $amount, string $acceptUrl)
     {
+        $this->dibs = $dibs;
         $this->orderId = $orderId;
         $this->amount = $amount;
         $this->acceptUrl = $acceptUrl;
@@ -83,11 +90,14 @@ class Transaction implements HasBodyParams
     {
         $data = [
             'accepturl' => $this->acceptUrl,
-            'currency' => $this->amount->getCurrency(),
+            'callbackurl' => $this->acceptUrl,
+            'currency' => DIBS::$currency_mapping[$this->amount->getCurrency()],
             'amount' => $this->amount->getValue(),
             'orderid' => $this->orderId,
             'lang' => $this->language,
             'acquirerlang' => $this->language,
+            'decorator' => 'responsive',
+            'md5key' => $this->generateMD5Key(),
         ];
 
         if ($this->captureNow) {
@@ -95,5 +105,15 @@ class Transaction implements HasBodyParams
         }
 
         return $data;
+    }
+
+    protected function generateMD5Key()
+    {
+        $parameter_string = 'merchant=' . $this->dibs->getMerchantId();
+        $parameter_string .= '&orderid=' . $this->orderId;
+        $parameter_string .= '&currency=' . DIBS::$currency_mapping[$this->amount->getCurrency()];
+        $parameter_string .= '&amount=' . $this->amount->getValue();
+
+        return md5($this->dibs->getMd5key2() . md5($this->dibs->getMd5key1() . $parameter_string));
     }
 }
