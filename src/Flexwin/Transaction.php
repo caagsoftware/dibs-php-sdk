@@ -97,8 +97,11 @@ class Transaction implements HasBodyParams
             'lang' => $this->language,
             'acquirerlang' => $this->language,
             'decorator' => 'responsive',
-            'md5key' => $this->generateMD5Key(),
         ];
+
+        if ($this->dibs->getMd5key1() && $this->dibs->getMd5key2()) {
+            $data['md5key'] = $this->generateMD5Key();
+        }
 
         if ($this->captureNow) {
             $data['capturenow'] = 'yes';
