@@ -115,7 +115,7 @@ class DIBS implements HasBodyParams
     /**
      * @return string
      */
-    public function getMd5key1(): string
+    public function getMd5key1(): ?string
     {
         return $this->md5key1;
     }
@@ -134,7 +134,7 @@ class DIBS implements HasBodyParams
     /**
      * @return string
      */
-    public function getMd5key2(): string
+    public function getMd5key2(): ?string
     {
         return $this->md5key2;
     }
