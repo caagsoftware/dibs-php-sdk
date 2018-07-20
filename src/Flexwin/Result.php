@@ -76,7 +76,7 @@ class Result
      */
     public function isApproved(): bool
     {
-        return (int) $this->statuscode === 5;
+        return in_array($this->statuscode, [5, 12]);
     }
 
     /**
