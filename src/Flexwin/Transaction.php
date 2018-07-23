@@ -91,6 +91,8 @@ class Transaction implements HasBodyParams
         $data = [
             'accepturl' => $this->acceptUrl,
             'callbackurl' => $this->acceptUrl,
+            'notifyurl' => $this->acceptUrl,
+            'cancelurl' => $this->acceptUrl,
             'currency' => DIBS::$currency_mapping[$this->amount->getCurrency()],
             'amount' => $this->amount->getValue(),
             'orderid' => $this->orderId,
