@@ -26,7 +26,7 @@ class Handler
         $this->dibs = $dibs;
 
         $this->guzzle = $client ?: new Client([
-            'base_uri' => "https://{$dibs->getMerchantId()}:{$dibs->getMerchantSecret()}@payment.architrade.com",
+            'base_uri' => "https://{$dibs->getUsername()}:{$dibs->getPassword()}@payment.architrade.com",
         ]);
     }
 
@@ -49,8 +49,6 @@ class Handler
 
         parse_str($response->getBody()->getContents(), $result);
 
-        return [
-            'status_code' => (int) $result['result'],
-        ];
+        return $result;
     }
 }

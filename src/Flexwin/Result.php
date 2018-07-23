@@ -100,6 +100,10 @@ class Result
      */
     public function getMessage(): string
     {
-        return $this->messages[$this->statuscode];
+        if (isset($this->messages[$this->statuscode])) {
+            return $this->messages[$this->statuscode];
+        }
+
+        return 'Transaction Cancelled';
     }
 }

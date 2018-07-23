@@ -11,17 +11,17 @@ class Refund extends Request implements HasBodyParams
     /**
      * @var int
      */
-    private $transact;
+    protected $transact;
 
     /**
      * @var string
      */
-    private $orderId;
+    protected $orderId;
 
     /**
      * @var Amount
      */
-    private $amount;
+    protected $amount;
 
     /**
      * Create new Refund instance.
